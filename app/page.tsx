@@ -4,12 +4,14 @@ import { ContentFilter } from "@/components/content-filter";
 
 export default function Home() {
   return (
-    <div className="container py-6">
-      <div className="mb-6 flex gap-4">
-        <SearchBar />
+    <div className=" w-full mx-auto px-4 py-6">
+      <div className="space-y-6">
+        <div className="w-full max-w-2xl mx-auto">
+          <SearchBar />
+        </div>
+        <ContentFilter />
+        <ContentGrid />
       </div>
-      <ContentFilter />
-      <ContentGrid />
     </div>
   );
 }

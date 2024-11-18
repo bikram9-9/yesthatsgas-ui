@@ -4,7 +4,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navigation } from "@/components/navigation";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
-import { AuthProvider } from "@/components/auth-provider";
 
 export const metadata: Metadata = {
   title: "Yes that's Gas - Travel Content",
@@ -26,11 +25,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AuthProvider>
-            <Navigation />
-            <main className="min-h-screen bg-background pt-16">{children}</main>
-            <Toaster />
-          </AuthProvider>
+          <Navigation />
+          <main className="min-h-screen bg-background pt-16">{children}</main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
