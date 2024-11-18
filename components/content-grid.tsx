@@ -1,6 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { createServerClient } from "@/lib/supabase/server";
 import { ContentCard } from "./content-card";
 import { Content, Profile } from "@/types/database";
@@ -9,7 +6,12 @@ async function getContent(): Promise<(Content & { profiles: Profile })[]> {
   const supabase = createServerClient();
   const { data, error } = await supabase
     .from("content")
-    .select("*, profiles(*)")
+    .select(
+      `
+      *,
+      profiles:user_id(*)
+    `
+    )
     .eq("status", "published")
     .order("created_at", { ascending: false })
     .limit(12)

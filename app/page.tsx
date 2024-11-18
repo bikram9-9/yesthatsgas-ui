@@ -1,5 +1,5 @@
 import { SearchBar } from "@/components/search-bar";
-import { ContentGrid } from "@/components/content-grid";
+import ContentGrid from "@/components/content-grid";
 import { ContentFilter } from "@/components/content-filter";
 
 export default function Home() {

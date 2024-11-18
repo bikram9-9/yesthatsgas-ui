@@ -7,7 +7,12 @@ async function getFeaturedGems(): Promise<(Content & { profiles: Profile })[]> {
   const supabase = createServerClient();
   const { data, error } = await supabase
     .from("content")
-    .select("*, profiles(*)")
+    .select(
+      `
+      *,
+      profiles:user_id(*)
+    `
+    )
     .eq("status", "published")
     .order("created_at", { ascending: false })
     .limit(3)
